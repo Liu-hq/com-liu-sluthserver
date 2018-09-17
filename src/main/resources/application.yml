@@ -1,0 +1,6 @@
+#公共配置
+spring:
+  application:
+    name: com-dyrs-mtsp-linktraceservice
+  profiles:
+    active: development

@@ -1,0 +1,45 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://discoveryservice.dev.saas.dyrs.online/eureka/
+    fetch-registry: true
+
+spring:
+  sleuth:
+    enabled: false
+    sampler:
+      percentage: 1.0
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 172.16.105.145:9092
+          zkNodes: 172.16.105.145:2181
+management:
+  security:
+    enabled: false
+info:
+  app:
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+    spring-boot-version: "@project.parent.version@"
+server:
+  port: 9410
+zipkin:
+  storage:
+    type: mysql
+    mysql:
+      host: localhost
+      port: 3306
+      username: root
+      password: root
+      db: test
+      max-active: 50
+      use-ssl: false
+logging:
+  config: classpath:logback-spring.xml
+  path: ${user.dir}/logs
+  level: info
